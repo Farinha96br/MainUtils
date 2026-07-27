@@ -1,0 +1,32 @@
+Bootstrap: docker
+From: python:3.11-slim-bookworm
+
+%post
+    apt-get update
+    apt-get install -y --no-install-recommends gnuplot-nox
+    rm -rf /var/lib/apt/lists/*
+
+    python -m pip install --no-cache-dir \
+        numpy \
+        pandas \
+        matplotlib \
+        notebook \
+        black \
+        isort
+
+%environment
+    export JUPYTER_PORT=49173
+    export JUPYTER_IP=0.0.0.0
+
+%runscript
+    exec python -m notebook \
+        --no-browser \
+        --ip="${JUPYTER_IP}" \
+        --port="${JUPYTER_PORT}" \
+        "$@"
+
+%help
+    Build from this directory with:
+        apptainer build sif/data-processing.sif data-processing.def
+    Run with:
+        apptainer run sif/data-processing.sif
