@@ -6,13 +6,10 @@ Tools, templates and notes I use day to day.
 
 | Path | What it is |
 | --- | --- |
-| `Templates/matplotlib/` | Small, self-contained matplotlib examples (line, scatter, bar, histogram, heatmap, contour, 3D surface, animation, ...) sharing the same serif / LaTeX-like style. |
-| `Templates/xournal.xopp` | Blank Xournal++ notebook template. |
-| `Templates/text.txt` | Empty text file template. |
-| `copyTemplates.sh` | Copies everything in `Templates/` into the system templates folder, so the files show up in the file manager's "New Document" menu. |
-| `apptainer/data-processing.def` | Python 3.11 container with numpy, pandas, matplotlib, Jupyter Notebook and gnuplot. |
-| `apptainer/formatting.def` | Python container that formats code with isort + black. |
-| `posReset.sh` | Post-install setup script for a fresh Ubuntu (apt/snap packages: LaTeX, OBS, VLC, GSL, Boost, ...). |
+| `Templates/` | File templates (matplotlib plots, Xournal++, text) |
+| `copyTemplates.sh` | Installs the templates for the file manager |
+| `apptainer/` | Containers for data processing and code formatting |
+| `posReset.sh` | Ubuntu post-install setup |
 
 ## Usage
 
