@@ -1,0 +1,19 @@
+Bootstrap: docker
+From: python:3.11-slim-bookworm
+
+%post
+    python -m pip install --no-cache-dir \
+        black \
+        isort
+
+%runscript
+    isort --profile black "$@" && black "$@"
+
+%help
+    Build from this directory with:
+        apptainer build sif/formatting.sif formatting.def
+    Run with (formats the given files/directories with isort, then black):
+        apptainer run sif/formatting.sif <paths>
+    Or call a single tool:
+        apptainer exec sif/formatting.sif black <paths>
+        apptainer exec sif/formatting.sif isort <paths>
